@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" id="mainNavbar">
 
-    <a class="navbar-brand" href="#">AUTH</a>
+    <a class="navbar-brand" href="/">AUTH</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,11 +10,24 @@
         <div class="collapse navbar-collapse" id="navbar">
 
             <ul class="navbar-nav mr-auto">
+              @guest
                 <li id="initial" class="nav-item">
-                    <a class="nav-link" href="#inicio">
-                        Inicio
-                    </a>
+                  <a class="nav-link" href="#inicio">
+                      Inicio
+                  </a>
                 </li>
+              @else
+                <li id="initial" class="nav-item">
+                  <a class="nav-link" href="#">
+                      Enviar Mensaje
+                  </a>
+                </li>
+                <li id="initial" class="nav-item">
+                  <a class="nav-link" href="#">
+                      Mensajes
+                  </a>
+                </li>
+              @endguest
             </ul>
 
             <ul class="navbar-nav navbar-right ">
@@ -28,6 +41,7 @@
                         <a class="dropdown-item active" href="#">Castellano</a>
                       </div>
                     </li>
+                    @guest
                     <li class="nav-item active">
                         <a class="nav-link" href="/login" data-target="#loginModal">
                             <i class="fa fa-sign-in"></i>
@@ -39,14 +53,17 @@
                             <i class="fa fa-user-plus"></i>
                             Registro
                         </a>
-                    </li>                    
-                    @if(isset( Auth::user()->name))
+                    </li>
+                    @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/perfil">
+                                    {{ __('Mi perfil') }}
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
