@@ -15,6 +15,9 @@ Route::get('/welcome', function () {
     return view('welcome_basic');
 })->middleware('auth.basic');
 
+Route::get('profile', function () {
+})->middleware('verified');
+
 Route::get('/', ['as'=>'home','uses'=>'AppController@index']);
 
 // Authentication Routes...
@@ -32,6 +35,9 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'HomeController@getProfile')->name('profile');
+
+Route::get('/messages', 'MessageController@index')->name('messages');

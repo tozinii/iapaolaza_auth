@@ -18,12 +18,12 @@
                 </li>
               @else
                 <li id="initial" class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="/sendMessage">
                       Enviar Mensaje
                   </a>
                 </li>
                 <li id="initial" class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="/messages">
                       Mensajes
                   </a>
                 </li>
@@ -61,7 +61,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/perfil">
+                                <a class="dropdown-item" href="/profile">
                                     {{ __('Mi perfil') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
