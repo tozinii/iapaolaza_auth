@@ -23,31 +23,8 @@
       </tr>
       </thead>
     <tbody>
-      @foreach ($messages_enviados as $m)
-      <tr>
-        <td>{{$m->id}}</td>
-        <td>{{$m->userto->user}}</td>
-        <td>{{substr($m->message, 0, 30)}}{{strlen($m->message)>30?'...':''}}</td>
-        <td>{{date("j/m/Y H:i:s", strtotime($m->datetime))}}</td>
-        <td>
-        <a title="Ver" href="{{route ('messages.show',$m->id)}}"><i class="fa fa-eye" style="color:green"></i></a>
-        </td>
-        <td>
-        @if ($fechamargen<strtotime($m->datetime))
-          <a title="Editar" href="{{route ('messages.edit',$m->id)}}"><i class="fa fa-pencil"></i></a>
-        @endif
-        </td>
-        <td>
-        <form style="display:inline" action="{{ route('messages.destroy',$m->id) }}" method="POST">
-           {{ method_field('DELETE') }}
-           {{ csrf_field() }}
-           <button type="submit" id="delete" style="background: none;padding: 0px;border: none;color:red">
-              <i class="fa fa-trash-o"></i>
-            </button>
-        </form>
-        </td>
-      </tr>
-      @endforeach
+      <!-- Aqui va el 1 -->
+
     </tbody>
     </table>
 
@@ -66,29 +43,8 @@
         </tr>
         </thead>
       <tbody>
-        @foreach ($messages_recibidos as $m)
-        <tr>
-          <td>{{$m->id}}</td>
-          <td>{{$m->userfrom->user}}</td>
-          <td>{{substr($m->message, 0, 30)}}{{strlen($m->message)>30?'...':''}}</td>
-          <td>{{date("j/m/Y H:i:s", strtotime($m->datetime))}}</td>
-          <td>
-          <a title="Ver" href="{{route ('messages.show',$m->id)}}"><i class="fa fa-eye" style="color:green"></i></a>
-          </td>
-          <td>
-            <a title="Responder" href="{{route ('messages.response',$m->id)}}"><i class="fa fa-share"></i></a>
-          </td>
-          <td>
-          <form style="display:inline" action="{{ route('messages.destroy',$m->id) }}" method="POST">
-             {{ method_field('DELETE') }}
-             {{ csrf_field() }}
-             <button type="submit" id="delete" style="background: none;padding: 0px;border: none;color:red">
-                <i class="fa fa-trash-o"></i>
-              </button>
-          </form>
-          </td>
-        </tr>
-        @endforeach
+        <!-- Aqui va el 2 -->
+        
       </tbody>
       </table>
 

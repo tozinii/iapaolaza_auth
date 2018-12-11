@@ -18,12 +18,12 @@
                 </li>
               @else
                 <li id="initial" class="nav-item">
-                  <a class="nav-link" href="/sendMessage">
+                  <a class="nav-link" href="{{ route('messages.create') }}">
                       Enviar Mensaje
                   </a>
                 </li>
                 <li id="initial" class="nav-item">
-                  <a class="nav-link" href="/messages">
+                  <a class="nav-link" href="{{ route('messages.index') }}">
                       Mensajes
                   </a>
                 </li>

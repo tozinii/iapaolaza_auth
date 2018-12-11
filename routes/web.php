@@ -40,4 +40,9 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'HomeController@getProfile')->name('profile');
 
-Route::get('/messages', 'MessageController@index')->name('messages');
+//Messages Routes
+Route::get('/messages', 'MessageController@index')->name('messages.index');
+Route::get('/messages/create', 'MessageController@create')->name('messages.create');
+Route::post('/messages', 'MessageController@store')->name('messages.store');
+Route::get('/messages/{message}', 'MessageController@show')->name('messages.show');
+Route::get('/messages/{message}/edit', 'MessageController@edit')->name('messages.edit');
